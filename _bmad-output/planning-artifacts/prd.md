@@ -23,7 +23,7 @@ vision:
 
 ## Executive Summary
 
-Afterlight is a consumer web app in the grief tech / digital legacy space: a shared memorial experience where families and friends create **rooms** for someone who has died and contribute **candles** (text, photos, or voice) inside **Moments** (memories/moments with that person) or **Tributes** (dedications—e.g. song, flower, candle, prayer). The primary user is the Family Organizer who creates the room and shares an invite link; the secondary but critical user is the Contributor who visits via link to read, share a memory, or **light** a candle.
+Afterlight is a consumer web app in the grief tech / digital legacy space: a shared memorial experience where families and friends create **rooms** for someone who has died and contribute **candles** (text, photos, or links) inside **Moments** (memories/moments with that person) or **Tributes** (dedications—e.g. song, flower, candle, prayer). The primary user is the Family Organizer who creates the room and shares an invite link; the secondary but critical user is the Contributor who visits via link to read, share a memory, or **light** a candle.
 
 The product's core insight is that people don't need another static tribute page or a noisy social-media feed; they need a calm, emotionally safe "home for memories" that supports ongoing shared remembrance over time. The differentiator is a ritual-like UX (Room → Moments and Tributes → Candles) combined with privacy-first defaults and minimal friction for contribution. The desired "aha" moment is when the organizer sees the first non-creator candle appear and realizes the space is working as a shared home.
 
@@ -34,10 +34,10 @@ The product's core insight is that people don't need another static tribute page
 | Main space | **Room** | The whole memorial for one person who has died. One room per person. |
 | Container type 1 | **Moment** | A place for **sharing a memory or a moment** you had with that person. Focus: personal recollection, story, or shared experience (e.g. "Her laugh," "Stories we tell"). Candles here = "I remember…" / "A moment we shared." |
 | Container type 2 | **Tribute** | A place for **dedicating something to or for** that person. Focus: offering, dedication, or gift in their honor—e.g. a song, a flower, a candle (ritual), a prayer, or a **link** (video, article, etc.). Candles here = "This is for you" / "I'm dedicating this to them." |
-| Single contribution | **Candle** | One person's contribution inside a Moment or Tribute: text (required) + optional photo, audio, video, or **link** (URL to a video, article, or other resource). |
+| Single contribution | **Candle** | One person's contribution inside a Moment or Tribute: text (required) + optional photo or **link** (URL to a video, article, or other resource). |
 | Primary action | **Light** | Main CTA (e.g. button "Light"); longer copy: "Light a candle" or "Add your light." |
 
-**Moment vs Tribute:** **Moment** = sharing a memory or moment *with* them (story, experience). **Tribute** = dedicating something *to* them (song, flower, prayer, or shared link e.g. video). Organizer creates both when setting up the room.
+**Moment vs Tribute:** **Moment** = sharing a memory or moment *with* them (story, experience). **Tribute** = dedicating something *to* them (song, flower, prayer, or shared link e.g. video). The distinction is **organizer-facing scaffolding**: it helps the organizer set up a meaningful structure when creating the room (choosing themes like "Her laugh" vs "A song for her"). For **contributors, the distinction is low-stakes** — any candle in any container is welcome and valid. If a contributor places a dedication inside a Moment or a memory inside a Tribute, that's fine; the system does not enforce or correct this. Copy and prompts lean into this: "Share whatever feels right."
 
 One-sentence value: "A shared home for memories where people can visit, share stories, and light a candle, and it will light forever."
 
@@ -46,7 +46,7 @@ One-sentence value: "A shared home for memories where people can visit, share st
 - **Ritual-shaped interaction model:** Rooms, Moments, Tributes, and candles make sharing feel meaningful and structured, not like a comment feed.
 - **Emotional safety as a design driver:** Tone, pacing, and UX minimize cognitive load during grief; contributions can be short and still feel valid.
 - **Privacy-first, non-exploitative stance:** Link-only visibility for MVP, clear control over who can see/contribute, no ads, no selling or training on user memories.
-- **Organizer-friendly onboarding:** Fast setup, starter Moments and Tributes, and a simple invite link make it easy for one person to create value for many.
+- **Organizer-friendly onboarding:** Fast setup, starter Moments and Tributes, and a clean room URL with copy helpers make it easy for one person to create value for many.
 - **Built for long-tail return visits:** Designed for anniversaries and revisits, not only the immediate days after death.
 
 ## Project Classification
@@ -62,7 +62,7 @@ One-sentence value: "A shared home for memories where people can visit, share st
 ### User Success
 
 - Organizer creates a room and gets an invite link with minimal friction.
-- At least one other person visits via link and lights a candle or leaves a memory (text, and optionally photo or voice).
+- At least one other person visits via link and lights a candle or leaves a memory (text, and optionally photo or link).
 - Contributors can return later (e.g. anniversaries) and the space still feels available and safe.
 - "Aha" moment: organizer sees the first candle from someone else and feels the space is working.
 
@@ -84,15 +84,22 @@ One-sentence value: "A shared home for memories where people can visit, share st
 - Return visits (sessions per room after 7 days, 30 days).
 - **Light** (add candle) completion rate (among visitors who start the flow).
 
+### Qualitative Validation
+
+- **Post-contribution pulse:** After a contributor lights a candle and sees the confirmation, offer an optional, single-question prompt (e.g. "Did this feel right?" with simple yes/not-really response). Non-intrusive; dismissed with a tap; never repeated in the same session. Track sentiment ratio over time.
+- **Organizer check-in:** After the first non-creator candle appears, prompt the organizer once (e.g. "How is the space feeling so far?") with a simple free-text or emoji-scale response. Use responses to detect early friction or satisfaction.
+- **Periodic lightweight interviews:** At 30-day and 90-day marks, invite a small sample of organizers for a brief (10-minute) conversation or async survey focused on: whether the space feels like a "shared home," what prompted return visits, and any unmet needs.
+- **Session replay and flow observation:** Use anonymized session recordings (with consent) on core flows (room creation, Light a candle) to identify hesitation, abandonment, or confusion points that quantitative metrics alone won't surface.
+
 ## Product Scope
 
 ### MVP – Minimum Viable Product
 
 - Rooms (create, view, edit; visibility: **public** or **link-only** at owner’s choice; owner can require **approval for new candles** before they appear).
 - **Moments and Tributes** (create, list, view; two container types—Moment = memory/moment with that person, Tribute = dedication e.g. song, flower, candle, prayer; starter suggestions at room creation).
-- **Candles** (text required; optional photo, audio, video, or **link**; display; author and room owner can edit/delete).
+- **Candles** (text required; optional photo or **link**; display; author and room owner can edit/delete).
 - Lightweight auth; named or guest contribution via invite link.
-- Per-room invite link and copyable invite message.
+- Room URL as the shareable link, with "Copy link" and "Copy message" helpers in room settings.
 - Room creator can remove candles or Moments/Tributes; basic spam/abuse handling.
 - Grief-sensitive copy and tone; soft, non-gamified UI; mobile-friendly; pagination/lazy-load for candles.
 
@@ -113,7 +120,7 @@ One-sentence value: "A shared home for memories where people can visit, share st
 Maya’s mother died two weeks ago. She’s coordinating with siblings and cousins in other cities and wants one place where everyone can share stories and see each other’s words without juggling social media or a sketchy “forever” site.
 
 - **Opening:** She searches for something like “online memorial for family,” finds Afterlight, and lands on the product. She’s tired and skeptical that anything will be simple or lasting.
-- **Rising action:** She creates an account (email + name), then a room: her mother’s name, a short line about her, and a photo. She picks a few starter Moments and/or Tributes (“Her laugh,” “What she taught us,” “Stories we tell”) and gets a shareable link and copyable invite text. She sends the link by email and in the family group chat.
+- **Rising action:** She creates an account (email + name), then a room: her mother’s name, a short line about her, and a photo. She picks a few starter Moments and/or Tributes (“Her laugh,” “What she taught us,” “Stories we tell”). The room is created with a clean URL. She uses “Copy link” and “Copy message” from room settings to send it by email and in the family group chat.
 - **Climax:** Within a few days she sees candles from her sister, a cousin, and an old friend. She reads their memories and lights a candle of her own in “Her laugh.” She feels the space is “working” and that her mom is being remembered together.
 - **Resolution:** She keeps the link; people add candles over time. She re-shares the link around her mother’s birthday and feels the memorial is a lasting, shared home rather than a one-off page.
 
@@ -146,12 +153,12 @@ A relative never saved the link and doesn’t know where to go.
 
 ### Journey Requirements Summary
 
-- **Room creation:** Account/session, create room (name, short description, photo), choose/create Moments and Tributes, set visibility (public or link-only), set whether new candles need owner approval, get invite link and copyable message.
+- **Room creation:** Account/session, create room (name, short description, photo), choose/create Moments and Tributes, set visibility (public or link-only), set whether new candles need owner approval. The room URL is the shareable link; room settings include "Copy link" and "Copy message" helpers for easy sharing.
 - **Room view (contributor):** Open via link or (if room is public) via listing/search; see room intro and list of Moments and Tributes.
 - **Moment/Tribute view:** List candles, pagination/lazy-load, **Light** entry point.
-- **Light (add candle):** Gentle copy, text + optional photo, video, or link, name or “Someone,” submit, confirmation and in-list display.
+- **Light (add candle):** Gentle copy, text + optional photo or link, name or “Someone,” submit, confirmation and in-list display.
 - **Moderation:** Room creator can delete candle or Moment/Tribute; optional approval queue for new candles when owner enables “approve before visible”; basic spam/abuse handling (e.g. block by email).
-- **Re-share:** Same invite link and copyable text so organizer can re-send anytime.
+- **Re-share:** Same room URL; organizer can use "Copy link" or "Copy message" from room settings anytime to re-send.
 
 ## Domain-Specific Requirements
 
@@ -177,7 +184,7 @@ A relative never saved the link and doesn’t know where to go.
 
 ### Risks and mitigations
 
-- **Risk:** Sensitive content exposed (e.g. link leaked). **Mitigation:** Link-only by default; optional “regenerate link”; owner can switch to approval-required for new candles.
+- **Risk:** Sensitive content exposed (e.g. link leaked). **Mitigation:** Link-only by default; owner can switch to approval-required for new candles so unwanted contributions don't appear without review. Future consideration: option to regenerate the room slug (with clear warning that old links will break).
 - **Risk:** Platform shutdown or change. **Mitigation:** Clear retention/backup and export (e.g. export room + candles) so families can keep their data.
 
 ## Innovation & Novel Patterns
@@ -197,9 +204,10 @@ A relative never saved the link and doesn’t know where to go.
 
 ### Validation Approach
 
-- **Product validation (3–6 months):** Rooms created, candles per room, % rooms with 2+ contributors, return visits (7-day, 30-day), and “light a candle” completion rate. Organizer “aha” (first non-creator candle) as qualitative signal.
-- **Innovation validation:** Ritual model works if median candles per room and share of rooms with multiple contributors meet targets; emotional safety reflected in low abandonment in “Light a candle” flow and optional feedback.
-- **Fallback:** If ritual structure underperforms, retain core value (privacy, export, calm UX) and iterate on Moment/Tribute/candle framing or onboarding based on usage and feedback.
+- **Quantitative (3–6 months):** Rooms created, candles per room, % rooms with 2+ contributors, return visits (7-day, 30-day), and “light a candle” completion rate.
+- **Qualitative (ongoing):** Post-contribution pulse (“Did this feel right?”), organizer check-in after first non-creator candle, periodic lightweight interviews at 30/90 days, and anonymized session replay on core flows. See “Qualitative Validation” under Success Criteria for details.
+- **Innovation validation:** Ritual model works if median candles per room and share of rooms with multiple contributors meet targets; emotional safety reflected in low abandonment in “Light a candle” flow, positive pulse responses, and organizer check-in sentiment.
+- **Fallback:** If ritual structure underperforms, retain core value (privacy, export, calm UX) and iterate on Moment/Tribute/candle framing or onboarding based on usage and qualitative feedback. The Moment vs. Tribute distinction is organizer-facing scaffolding and low-stakes for contributors; if user testing shows the distinction causes confusion, it can be simplified to a single container type without breaking the core model.
 
 ### Risk Mitigation
 
@@ -238,7 +246,7 @@ Afterlight is a consumer web application used in-browser on desktop and mobile. 
 
 **Core user journeys supported:** Family Organizer creates room and invites others; Contributor visits via link and lights a candle or leaves a memory; Organizer moderates (remove candle or Moment/Tribute, optional approval queue); Contributor or Organizer re-visits (e.g. anniversary).
 
-**Must-have capabilities:** Room CRUD with visibility (public/link-only) and optional approval for new candles; Moments and Tributes (create, list, view; two container types) with starter suggestions; candles (text required, optional photo, audio, video, or link, display, edit/delete by author or owner); per-room invite link and copyable message; lightweight auth for creator; named or guest contribution via link; grief-sensitive copy and tone; mobile-friendly layout; pagination/lazy-load for candles; room creator can remove candles or Moments/Tributes and basic spam/abuse handling.
+**Must-have capabilities:** Room CRUD with visibility (public/link-only) and optional approval for new candles; Moments and Tributes (create, list, view; two container types) with starter suggestions; candles (text required, optional photo or link, display, edit/delete by author or owner); room URL as the shareable link (no separate invite-link system — the room's URL is what the organizer shares, with a "Copy link" and optional "Copy message" helper in room settings); lightweight auth for creator; named or guest contribution via link; grief-sensitive copy and tone; mobile-friendly layout; pagination/lazy-load for candles; room creator can remove candles or Moments/Tributes and basic spam/abuse handling.
 
 ### Post-MVP Features
 
@@ -248,7 +256,7 @@ Afterlight is a consumer web application used in-browser on desktop and mobile. 
 
 ### Risk Mitigation Strategy
 
-**Technical:** Most complex areas are media (photo/audio) and approval workflow; mitigate with simple upload and a clear pending/approved state. **Market:** Validate with rooms created and multi-contributor share before monetization. **Resource:** MVP is shippable with a small team; defer paid tier and integrations to Phase 2.
+**Technical:** Most complex areas are photo upload and approval workflow; mitigate with simple upload and a clear pending/approved state. **Market:** Validate with rooms created and multi-contributor share before monetization. **Resource:** MVP is shippable with a small team; defer paid tier and integrations to Phase 2.
 
 ## Functional Requirements
 
@@ -271,19 +279,19 @@ Afterlight is a consumer web application used in-browser on desktop and mobile. 
 
 ### Candles (Memories)
 
-- FR12: Visitor with room access can add a candle to a Moment or Tribute (text required; optional photo, audio, video, and/or link).
+- FR12: Visitor with room access can add a candle to a Moment or Tribute (text required; optional photo and/or link).
 - FR13: Visitor can provide a display name or contribute as "Someone" (or equivalent anonymous option).
 - FR14: System displays candles in the Moment or Tribute with author attribution (name or anonymous) and content.
 - FR15: Candle author can edit or delete their own candle.
 - FR16: Room creator can edit or delete any candle in the room.
 - FR17: When approval is required, room creator can approve or reject pending candles; approved candles then appear in the Moment or Tribute.
 
-### Invitation & Access
+### Sharing & Access
 
-- FR18: Room creator can obtain a per-room invite link and a copyable invite message.
-- FR19: Anyone with the invite link can open the room (subject to visibility) and view Moments, Tributes, and candles.
-- FR20: Room creator can re-share the same invite link and copyable message at any time.
-- FR21: For link-only rooms, only users with the link can find and open the room (no public listing or search).
+- FR18: The room's URL is the shareable link. Room settings include a "Copy link" button and a "Copy message" helper (pre-written text the organizer can paste into email, chat, etc.). No separate invite-link generation system — the room URL is stable and permanent.
+- FR19: Anyone with the room URL can open the room (subject to visibility) and view Moments, Tributes, and candles.
+- FR20: Room creator can use "Copy link" or "Copy message" from room settings at any time to re-share.
+- FR21: For link-only rooms, only users with the URL can find and open the room (no public listing or search). The URL is not guessable (e.g. uses a random slug or UUID).
 
 ### Authentication & Identity
 
@@ -298,20 +306,24 @@ Afterlight is a consumer web application used in-browser on desktop and mobile. 
 
 ### Content & Media
 
-- FR27: Candles can include text (required), optional photo, optional audio, optional video, and optional link (URL to a video, article, or other resource).
+- FR27: Candles can include text (required), optional photo, and optional link (URL to a video, article, or other resource).
 - FR28: Room supports a primary photo for the room (e.g. of the person being remembered).
 - FR29: Room and candle content are displayed in a grief-sensitive, calm manner (tone and presentation per domain requirements).
 
 ### Export & Stewardship
 
-- FR30: Room creator (or designated role) can export room data (e.g. room plus candles) for backup or portability, as specified in domain/risk mitigations.
+- FR30: Room creator can export the full room as a downloadable archive. The export includes:
+  - A **readable PDF** of the room: room details (name, description, dates, places, main image), each Moment and Tribute with its candles (author, message, timestamp), and any attached photos rendered inline. This is the "keepsake" format families can print or share.
+  - A **structured JSON file** containing all room data, Moment/Tribute metadata, and candle records (text, author, timestamps, photo URLs, link URLs) for portability and re-import.
+  - A **media folder** with all uploaded photos at original resolution.
+  - The archive is delivered as a single `.zip` file. Export is available from room settings for the room creator at any time. The system should complete export within a reasonable time (target: under 60 seconds for rooms with up to 500 candles and associated photos).
 
 ## Non-Functional Requirements
 
 ### Performance
 
 - NFR1: Room and Moments/Tributes listing pages load and render key content within 3 seconds under normal load (95th percentile), as measured by real-user or synthetic monitoring.
-- NFR2: Submission of a candle (text-only) completes and confirms to the user within 5 seconds under normal conditions; photo/audio may have longer acceptable latency with clear progress indication.
+- NFR2: Submission of a candle (text-only) completes and confirms to the user within 5 seconds under normal conditions; photo upload may have longer acceptable latency with clear progress indication.
 - NFR3: Pagination or lazy-load keeps initial page payload bounded so that rooms with many candles do not block initial render.
 
 ### Security
