@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afterlight — User Flows</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #f7fafc;
+    color: #2d3748;
+    padding: 40px 24px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .page-header p {
+    font-size: 15px;
+    color: #718096;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .flow-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .flow-tab {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .flow-tab:hover { border-color: #cbd5e0; background: #f7fafc; }
+
+  .flow-tab.active {
+    border-color: #d69e2e;
+    background: #fffdf5;
+    color: #b7791f;
+    box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.1);
+  }
+
+  .flow-tab .icon { font-size: 16px; }
+
+  .flow-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .flow-section {
+    display: none;
+  }
+
+  .flow-section.active {
+    display: block;
+  }
+
+  .flow-meta {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+
+  .flow-meta h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 6px;
+  }
+
+  .flow-meta .role {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #d69e2e;
+    margin-bottom: 8px;
+  }
+
+  .flow-meta .goal {
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.5;
+  }
+
+  /* Flow diagram */
+  .flow-diagram {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+  }
+
+  .step-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 44px;
+    flex-shrink: 0;
+  }
+
+  .step-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    z-index: 1;
+    position: relative;
+  }
+
+  .step-dot.action { background: #2d3748; }
+  .step-dot.decision { background: #d69e2e; }
+  .step-dot.success { background: #38a169; }
+  .step-dot.entry { background: #4a5568; }
+  .step-dot.error { background: #e53e3e; }
+  .step-dot.passive { background: #718096; }
+
+  .step-line {
+    width: 2px;
+    flex-grow: 1;
+    min-height: 20px;
+    background: #e2e8f0;
+  }
+
+  .step-content {
+    flex: 1;
+    padding: 10px 0 28px 0;
+  }
+
+  .step-content h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.5;
+  }
+
+  .step-content .detail-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+
+  .tag-optional { background: #ebf8ff; color: #2b6cb0; }
+  .tag-required { background: #fefcbf; color: #975a16; }
+  .tag-cta { background: #fff5eb; color: #c05621; }
+  .tag-emotional { background: #faf5ff; color: #6b46c1; }
+  .tag-feedback { background: #f0fff4; color: #276749; }
+
+  /* Branch / fork visuals */
+  .fork-container {
+    margin: 0 0 0 52px;
+    padding: 12px 0 12px 20px;
+    border-left: 2px dashed #e2e8f0;
+  }
+
+  .fork-option {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.5;
+  }
+
+  .fork-option strong { color: #2d3748; }
+
+  /* Success / error boxes */
+  .outcome-box {
+    margin: 8px 0 0 0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .outcome-success { background: #f0fff4; border: 1px solid #c6f6d5; color: #276749; }
+  .outcome-error { background: #fff5f5; border: 1px solid #fed7d7; color: #9b2c2c; }
+
+  /* Overview diagram */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .overview-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .overview-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .overview-card:hover {
+    border-color: #d69e2e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .overview-card .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .overview-card .card-icon.organizer { background: #ebf8ff; }
+  .overview-card .card-icon.contributor { background: #fff5eb; }
+  .overview-card .card-icon.moderate { background: #fff5f5; }
+  .overview-card .card-icon.return-visit { background: #f0fff4; }
+
+  .overview-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 6px;
+  }
+
+  .overview-card p {
+    font-size: 13px;
+    color: #718096;
+    line-height: 1.5;
+  }
+
+  .overview-card .step-count {
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  /* IA diagram */
+  .ia-diagram {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .ia-diagram h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+
+  .ia-levels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ia-node {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .ia-node.room { background: #1a202c; color: #fff; }
+  .ia-node.container { background: #d69e2e; color: #fff; }
+  .ia-node.candle { background: #fff5eb; color: #c05621; border: 1.5px solid #fbd38d; }
+
+  .ia-arrow {
+    color: #cbd5e0;
+    font-size: 20px;
+  }
+
+  .ia-split {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .ia-note {
+    font-size: 12px;
+    color: #a0aec0;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 32px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #718096;
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #718096;
+    cursor: pointer;
+    margin-bottom: 16px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    background: none;
+    transition: all 0.15s;
+  }
+
+  .back-btn:hover { background: #edf2f7; color: #4a5568; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Afterlight — User Flows</h1>
+  <p>Room → Moments & Tributes → Candles. Four core journeys for organizers and contributors.</p>
+</div>
+
+<div class="flow-container">
+
+  <div class="flow-tabs">
+    <button class="flow-tab active" onclick="showFlow('overview')">
+      <span class="icon">◉</span> Overview
+    </button>
+    <button class="flow-tab" onclick="showFlow('organizer')">
+      <span class="icon">🏠</span> Create Room
+    </button>
+    <button class="flow-tab" onclick="showFlow('contributor')">
+      <span class="icon">🕯</span> Light a Candle
+    </button>
+    <button class="flow-tab" onclick="showFlow('moderate')">
+      <span class="icon">🛡</span> Moderate
+    </button>
+    <button class="flow-tab" onclick="showFlow('return')">
+      <span class="icon">↩</span> Return Visit
+    </button>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div id="flow-overview" class="flow-section active">
+    <div class="ia-diagram">
+      <h3>Information Architecture</h3>
+      <div class="ia-levels">
+        <div class="ia-node room">🏠 Room</div>
+        <div class="ia-arrow">↓</div>
+        <div class="ia-split">
+          <div>
+            <div class="ia-node container">💭 Moment</div>
+            <div class="ia-note">Memories with them</div>
+          </div>
+          <div>
+            <div class="ia-node container">🎁 Tribute</div>
+            <div class="ia-note">Dedications to them</div>
+          </div>
+        </div>
+        <div class="ia-arrow">↓</div>
+        <div class="ia-node candle">🕯 Candles (spread)</div>
+        <div class="ia-note">Text (required) + optional photo or link · shown individually, never aggregated</div>
+        <div class="ia-note" style="margin-top:8px; color:#b7791f; font-style:normal; font-weight:500;">Moment vs. Tribute is organizer scaffolding — low-stakes for contributors</div>
+      </div>
+    </div>
+
+    <div class="overview-grid">
+      <div class="overview-card" onclick="showFlow('organizer')">
+        <div class="card-icon organizer">🏠</div>
+        <h3>1. Create Room & Share</h3>
+        <p>Family Organizer creates the room, adds Moments & Tributes, sets visibility, and shares the room URL.</p>
+        <div class="step-count">8 steps · primary flow</div>
+      </div>
+      <div class="overview-card" onclick="showFlow('contributor')">
+        <div class="card-icon contributor">🕯</div>
+        <h3>2. Visit & Light a Candle</h3>
+        <p>Contributor opens the room URL, reads candles, and adds their own via the in-page Light form.</p>
+        <div class="step-count">8 steps · primary flow</div>
+      </div>
+      <div class="overview-card" onclick="showFlow('moderate')">
+        <div class="card-icon moderate">🛡</div>
+        <h3>3. Moderate</h3>
+        <p>Organizer removes an inappropriate candle and keeps the room safe — no support needed.</p>
+        <div class="step-count">5 steps · organizer only</div>
+      </div>
+      <div class="overview-card" onclick="showFlow('return')">
+        <div class="card-icon return-visit">↩</div>
+        <h3>4. Return Visit</h3>
+        <p>Same URL, same room. No re-onboarding. Optional gentle cue for anniversaries.</p>
+        <div class="step-count">3 steps · both roles</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#4a5568"></div> Entry point</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2d3748"></div> Action step</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#d69e2e"></div> Decision</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#38a169"></div> Success</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e53e3e"></div> Error / edge case</div>
+    </div>
+  </div>
+
+  <!-- FLOW 1: ORGANIZER -->
+  <div id="flow-organizer" class="flow-section">
+    <button class="back-btn" onclick="showFlow('overview')">← All flows</button>
+
+    <div class="flow-meta">
+      <div class="role">Family Organizer</div>
+      <h2>Create Room & Share</h2>
+      <div class="goal">Create a room for someone who has died, add Moments and/or Tributes, copy the room URL, and share so others can visit and contribute.</div>
+    </div>
+
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot entry">1</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Land on product</h3>
+          <p>Search, word of mouth, or direct link. Organizer is likely tired and hoping something will be simple.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">2</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Create account</h3>
+          <p>Email + name. Lightweight — no social login required.</p>
+          <span class="detail-tag tag-required">Required</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">3</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Create room</h3>
+          <p>Main image of the person (hero photo). Optional: first/last name, dates (year only, month+year, or full date), places of birth and death, additional photos.</p>
+          <span class="detail-tag tag-emotional">All fields optional except a way to identify the room</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">4</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Add Moments & Tributes</h3>
+          <p>Choose from starter suggestions (e.g. "Her laugh," "Stories we tell," "A song for her") or create custom ones. The Moment/Tribute distinction helps organizers set up meaningful structure.</p>
+          <span class="detail-tag tag-optional">Starter suggestions available</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot decision">5</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Set visibility & approval</h3>
+          <p>Public (discoverable) or link-only. Optionally require approval for new candles before they appear.</p>
+        </div>
+      </div>
+      <div class="fork-container">
+        <div class="fork-option"><strong>Link-only (default):</strong> Only people with the URL can find and open the room. URL uses a random slug — not guessable.</div>
+        <div class="fork-option"><strong>Public:</strong> Room is discoverable/listable. Room title and description are indexable.</div>
+        <div class="fork-option"><strong>Approval on:</strong> New candles go to a pending queue; organizer approves before they appear.</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">6</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Copy link & share</h3>
+          <p>The room URL is the shareable link — no separate invite system. Room settings include "Copy link" and "Copy message" (pre-written text with the URL and a warm line).</p>
+          <span class="detail-tag tag-cta">Copy link · Copy message</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot success">7</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>See candles from others</h3>
+          <p>First non-creator candle = "aha moment." The space is working as a shared home.</p>
+          <div class="outcome-box outcome-success">✓ Organizer prompted once: "How is the space feeling so far?" (optional qualitative check-in)</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot passive">8</div></div>
+        <div class="step-content">
+          <h3>Re-share when needed</h3>
+          <p>Same URL. Use "Copy link" or "Copy message" anytime — e.g. around anniversaries, when thinking of the person.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOW 2: CONTRIBUTOR -->
+  <div id="flow-contributor" class="flow-section">
+    <button class="back-btn" onclick="showFlow('overview')">← All flows</button>
+
+    <div class="flow-meta">
+      <div class="role">Contributor</div>
+      <h2>Visit & Light a Candle</h2>
+      <div class="goal">Open the room via URL, see who it's for, read candles, and add a candle (text + optional photo or link) with minimal friction. No account required.</div>
+    </div>
+
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot entry">1</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Open room URL</h3>
+          <p>Tap link from email, chat, or bookmark. No account required to view.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">2</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Room view</h3>
+          <p>See who the room is for: main image, optional name/dates/places, and list of Moments and Tributes with candle counts.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">3</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Open a Moment or Tribute</h3>
+          <p>Tap to enter. Contributor doesn't need to worry about the Moment/Tribute distinction — "share whatever feels right."</p>
+          <span class="detail-tag tag-emotional">Low-stakes choice</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">4</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Read candles (spread)</h3>
+          <p>Each candle shown individually: name (or "Someone"), message, optional photo or link, "Lit X ago." No aggregation.</p>
+        </div>
+      </div>
+      <div class="flow-step" id="empty-state-step">
+        <div class="step-track"><div class="step-dot decision" style="font-size:11px;">4b</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Empty state (if no candles yet)</h3>
+          <p>"No one has shared here yet. It can feel hard to go first — but even a few words, or just your name, is a way of saying 'I was here, and I remember.' Whatever you share is enough."</p>
+          <span class="detail-tag tag-emotional">Acknowledges the courage of going first</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action" style="background:#d69e2e;">5</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Tap "Light a candle"</h3>
+          <p>Hero CTA — one per view. Available from room and from within each Moment/Tribute.</p>
+          <span class="detail-tag tag-cta">Primary CTA · "Light" or "Light a candle"</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">6</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>In-page form expands</h3>
+          <p>Form expands inline within the Moment/Tribute view (never a modal). Message textarea with reassurance copy visible. Name or "Someone." Optional "Add photo" and link field.</p>
+          <span class="detail-tag tag-required">Message required</span>
+          <span class="detail-tag tag-optional">Photo, link, name optional</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">7</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Submit</h3>
+          <p>Button: "Light candle." Disabled state while submitting. Photo upload shows progress.</p>
+          <div class="outcome-box outcome-error" style="margin-top:8px;">✗ Missing message → inline validation, no blame. Submit failure → clear message and retry.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot success">8</div></div>
+        <div class="step-content">
+          <h3>Confirmation & candle in spread</h3>
+          <p>"Thank you. Your candle is now part of this [moment/tribute]." Candle appears in the list. If approval is on: "Your candle will appear once the room creator approves it."</p>
+          <div class="outcome-box outcome-success">✓ Optional pulse: "Did this feel right?" (single-question, non-intrusive, never repeated in session)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOW 3: MODERATE -->
+  <div id="flow-moderate" class="flow-section">
+    <button class="back-btn" onclick="showFlow('overview')">← All flows</button>
+
+    <div class="flow-meta">
+      <div class="role">Family Organizer</div>
+      <h2>Moderate (Remove Candle)</h2>
+      <div class="goal">Remove an inappropriate or mistaken candle and keep the room safe — without contacting support.</div>
+    </div>
+
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot entry">1</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Open room as creator</h3>
+          <p>Navigate to the Moment/Tribute where the candle appears.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">2</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>See problematic candle</h3>
+          <p>"Remove" / "Delete candle" is visible to room creator only. Unobtrusive — doesn't dominate the view.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot decision">3</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Confirm removal</h3>
+          <p>Small confirmation dialog (not the Light form pattern — this is a destructive action). Clear Confirm / Cancel.</p>
+          <div class="outcome-box outcome-error" style="margin-top:8px;">✗ If removal fails, show clear message and retry.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot success">4</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Candle removed</h3>
+          <p>Candle disappears from the Moment/Tribute. Feels like restoring safety, not punitive.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot passive">5</div></div>
+        <div class="step-content">
+          <h3>Optional: re-share room link</h3>
+          <p>Organizer can re-share with a note ("Link still works; please only share with people who knew [name]").</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOW 4: RETURN -->
+  <div id="flow-return" class="flow-section">
+    <button class="back-btn" onclick="showFlow('overview')">← All flows</button>
+
+    <div class="flow-meta">
+      <div class="role">Contributor or Organizer</div>
+      <h2>Return Visit</h2>
+      <div class="goal">Come back to the room — on an anniversary, when thinking of the person, or whenever. Same URL, no re-onboarding.</div>
+    </div>
+
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot entry">1</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Open same URL</h3>
+          <p>Bookmark, saved link, or re-shared by organizer. Same room, same URL — no changes.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot action">2</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Room view (unchanged)</h3>
+          <p>Familiar room. May see new candles since last visit. Optional gentle cue: "This space is still here."</p>
+          <span class="detail-tag tag-emotional">No re-onboarding, no clutter</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-track"><div class="step-dot success">3</div></div>
+        <div class="step-content">
+          <h3>Browse or light a new candle</h3>
+          <p>Read Moments, Tributes, and candles. Light a new candle if moved to. No forced next steps.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <div class="flow-meta" style="border-color:#fed7d7;">
+        <div class="role" style="color:#e53e3e;">Edge case: Lost link</div>
+        <h2 style="font-size:16px;">Contributor lost the URL</h2>
+        <div class="goal">If the room is link-only, search won't find it. The contributor asks the organizer or family for the URL again. Once they have it → same room view as before.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showFlow(id) {
+  document.querySelectorAll('.flow-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.flow-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('flow-' + id).classList.add('active');
+  document.querySelectorAll('.flow-tab').forEach(t => {
+    const map = { 'overview': 'Overview', 'organizer': 'Create Room', 'contributor': 'Light a Candle', 'moderate': 'Moderate', 'return': 'Return Visit' };
+    if (t.textContent.trim().includes(map[id])) t.classList.add('active');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
