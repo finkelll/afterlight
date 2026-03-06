@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afterlight – Design Directions</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: #f5f5f4; }
+    .intro { padding: 2rem; max-width: 48rem; margin: 0 auto; }
+    .intro h1 { font-size: 1.5rem; color: #374151; }
+    .intro p { color: #6b7280; line-height: 1.6; }
+    section.direction { padding: 2rem 1rem; max-width: 56rem; margin: 0 auto 3rem; border-radius: 12px; }
+    section.direction h2 { margin: 0 0 0.5rem; font-size: 1.25rem; }
+    section.direction .tag { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    .mockup { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); max-width: 400px; }
+    .mockup-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid #e5e7eb; }
+    .mockup-body { padding: 1.5rem; }
+    .mockup .thread-list { list-style: none; padding: 0; margin: 0; }
+    .mockup .thread-list li { padding: 0.75rem 0; border-bottom: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; }
+    .mockup .thread-list li:last-child { border-bottom: none; }
+    .mockup .btn { display: inline-block; padding: 0.625rem 1.25rem; border-radius: 8px; font-size: 0.9375rem; font-weight: 500; text-decoration: none; border: none; cursor: pointer; }
+    .mockup textarea { width: 100%; min-height: 80px; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 0.9375rem; resize: vertical; }
+    .mockup label { display: block; font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem; }
+    .mockup .helper { font-size: 0.8125rem; color: #9ca3af; margin-top: 0.5rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+    /* Animated lit candle — flame flicker */
+    .candle-lit { display: inline-flex; flex-direction: column; align-items: center; width: 24px; flex-shrink: 0; }
+    .candle-lit .flame { animation: flame-flicker 1.2s ease-in-out infinite; transform-origin: center bottom; }
+    @keyframes flame-flicker {
+      0%, 100% { opacity: 1; transform: scaleY(1) scaleX(1); }
+      25% { opacity: 0.92; transform: scaleY(1.06) scaleX(0.98); }
+      50% { opacity: 0.98; transform: scaleY(0.97) scaleX(1.04); }
+      75% { opacity: 0.95; transform: scaleY(1.03) scaleX(0.99); }
+    }
+    .candle-time { font-size: 0.75rem; color: #718096; margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    <h1>Afterlight – Design direction exploration</h1>
+    <p>Instructional reference for designers: chosen direction and palette, not final production art. <strong>Bold & Dignified</strong> with <strong>Slate & silver</strong> palette (A). Not sure about the palette? Compare options below and say which way you lean.</p>
+  </div>
+
+  <!-- Palette exploration -->
+  <section class="direction" style="background: #f8f7f5; border: 1px solid #e5e7eb;">
+    <h2>Palette exploration (no gold)</h2>
+    <p class="tag">Compare options without gold. Tell us which you prefer or how you’d mix them.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; max-width: 56rem; margin: 0 auto;">
+      <div style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="height: 12px; background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);"></div>
+        <div style="height: 10px; background: #718096;"></div>
+        <div style="height: 14px; background: #f7fafc;"></div>
+        <div style="padding: 0.75rem 1rem;">
+          <strong>A. Slate & silver</strong>
+          <p style="margin: 0.25rem 0 0; font-size: 0.8125rem; color: #6b7280;">Dark slate header, soft gray accent, cool white. Calm, understated.</p>
+        </div>
+      </div>
+      <div style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="height: 12px; background: linear-gradient(135deg, #5c2d3e 0%, #3d1f2e 100%);"></div>
+        <div style="height: 10px; background: #9f7a6d;"></div>
+        <div style="height: 14px; background: #fef9f6;"></div>
+        <div style="padding: 0.75rem 1rem;">
+          <strong>B. Burgundy & stone</strong>
+          <p style="margin: 0.25rem 0 0; font-size: 0.8125rem; color: #6b7280;">Deep burgundy header, dusty rose/stone accent, warm cream. Solemn, soft.</p>
+        </div>
+      </div>
+      <div style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="height: 12px; background: linear-gradient(135deg, #2c3e2c 0%, #1e2b1e 100%);"></div>
+        <div style="height: 10px; background: #6b8e6b;"></div>
+        <div style="height: 14px; background: #f4f7f4;"></div>
+        <div style="padding: 0.75rem 1rem;">
+          <strong>C. Forest & sage</strong>
+          <p style="margin: 0.25rem 0 0; font-size: 0.8125rem; color: #6b7280;">Dark green header, sage accent, soft green-tinted white. Peaceful, natural.</p>
+        </div>
+      </div>
+      <div style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="height: 12px; background: linear-gradient(135deg, #3d3d3d 0%, #2d2d2d 100%);"></div>
+        <div style="height: 10px; background: #6b7280;"></div>
+        <div style="height: 14px; background: #fafaf8;"></div>
+        <div style="padding: 0.75rem 1rem;">
+          <strong>D. Charcoal & gray</strong>
+          <p style="margin: 0.25rem 0 0; font-size: 0.8125rem; color: #6b7280;">Neutral dark header, medium gray accent, off-white. Clear, minimal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direction: Bold & Dignified (CHOSEN) — Palette A: Slate & silver -->
+  <section class="direction" style="background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%); border: 2px solid #718096;">
+    <h2>★ Bold & Dignified (chosen direction) — Slate & silver</h2>
+    <p class="tag">Dark slate header, soft gray accent, cool white. Calm, understated. Dignified candle imagery.</p>
+    <div class="two-col">
+      <div class="mockup" style="background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(45,55,72,0.08);">
+        <div class="mockup-header" style="background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); color: #f7fafc; border: none; padding: 1.5rem;">
+          <div style="font-size: 1.25rem; font-weight: 600; letter-spacing: 0.02em;">In memory of Eleanor</div>
+          <div style="font-size: 0.875rem; color: #a0aec0; margin-top: 0.35rem;">A place to share stories and light a candle.</div>
+        </div>
+        <div class="mockup-body" style="color: #1a202c;">
+          <ul class="thread-list" style="border-color: #e2e8f0;">
+            <li>
+              <span style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="candle-icon" aria-hidden="true">🕯</span>
+                Her laugh
+              </span>
+              <span style="font-size: 0.8125rem; color: #718096; font-weight: 500;">12 candles</span>
+            </li>
+            <li>
+              <span style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="candle-icon" aria-hidden="true">🕯</span>
+                What she taught us
+              </span>
+              <span style="font-size: 0.8125rem; color: #718096; font-weight: 500;">8 candles</span>
+            </li>
+            <li>
+              <span style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="candle-icon" aria-hidden="true">🕯</span>
+                Stories we tell
+              </span>
+              <span style="font-size: 0.8125rem; color: #718096; font-weight: 500;">5 candles</span>
+            </li>
+          </ul>
+          <div style="margin-top: 1.25rem;">
+            <a href="#" class="btn" style="background: #4a5568; color: #fff; box-shadow: 0 2px 6px rgba(45,55,72,0.2); border-radius: 10px;">🕯 Light a candle</a>
+          </div>
+        </div>
+      </div>
+      <div class="mockup" style="background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(45,55,72,0.08);">
+        <div class="mockup-header" style="background: #2d3748; color: #f7fafc; border: none; font-size: 0.9375rem;">🕯 Stories we tell</div>
+        <div class="mockup-body" style="color: #1a202c;">
+          <p style="font-size: 0.75rem; color: #718096; margin-bottom: 1rem;">Candles spread — each with name and message</p>
+          <div class="candle-spread">
+            <div style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; display: flex; gap: 0.75rem; align-items: flex-start;">
+              <div class="candle-lit" aria-hidden="true">
+                <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="12" width="8" height="18" rx="1" fill="#cbd5e0" stroke="#a0aec0" stroke-width="0.5"/>
+                  <ellipse class="flame" cx="12" cy="8" rx="3" ry="6" fill="url(#flame-grad)"/>
+                  <defs><linearGradient id="flame-grad" x1="12" y1="2" x2="12" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#f4d03f"/><stop offset="0.5" stop-color="#e67e22"/><stop offset="1" stop-color="#c0392b"/></linearGradient></defs>
+                </svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 0.9375rem;">Maya</div>
+                <div style="font-size: 0.875rem; color: #4a5568;">She could light up the whole room.</div>
+                <div class="candle-time">Lit 2 years ago</div>
+              </div>
+            </div>
+            <div style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; display: flex; gap: 0.75rem; align-items: flex-start;">
+              <div class="candle-lit" aria-hidden="true">
+                <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="12" width="8" height="18" rx="1" fill="#cbd5e0" stroke="#a0aec0" stroke-width="0.5"/>
+                  <ellipse class="flame" cx="12" cy="8" rx="3" ry="6" fill="url(#flame-grad2)"/>
+                  <defs><linearGradient id="flame-grad2" x1="12" y1="2" x2="12" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#f4d03f"/><stop offset="0.5" stop-color="#e67e22"/><stop offset="1" stop-color="#c0392b"/></linearGradient></defs>
+                </svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 0.9375rem;">James</div>
+                <div style="font-size: 0.875rem; color: #4a5568;">I'll never forget the road trips.</div>
+                <div class="candle-time">Lit 3 months ago</div>
+              </div>
+            </div>
+            <div style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; display: flex; gap: 0.75rem; align-items: flex-start;">
+              <div class="candle-lit" aria-hidden="true">
+                <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="12" width="8" height="18" rx="1" fill="#cbd5e0" stroke="#a0aec0" stroke-width="0.5"/>
+                  <ellipse class="flame" cx="12" cy="8" rx="3" ry="6" fill="url(#flame-grad3)"/>
+                  <defs><linearGradient id="flame-grad3" x1="12" y1="2" x2="12" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#f4d03f"/><stop offset="0.5" stop-color="#e67e22"/><stop offset="1" stop-color="#c0392b"/></linearGradient></defs>
+                </svg>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 0.9375rem;">Someone</div>
+                <div style="font-size: 0.875rem; color: #4a5568;">Thank you for everything.</div>
+                <div class="candle-time">Lit 5 days ago</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 1rem;"><a href="#" class="btn" style="background: #4a5568; color: #fff; box-shadow: 0 2px 6px rgba(45,55,72,0.2); border-radius: 10px;">🕯 Light a candle</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direction 1: Calm Minimal -->
+  <section class="direction" style="background: #fafaf9;">
+    <h2>1. Calm Minimal</h2>
+    <p class="tag">Maximum white space, very subtle gray, minimal accent. Feels quiet and uncluttered.</p>
+    <div class="two-col">
+      <div class="mockup">
+        <div class="mockup-header" style="background: #fff; color: #1f2937;">
+          <div style="font-size: 1.125rem; font-weight: 600;">In memory of Eleanor</div>
+          <div style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">A place to share stories and light a candle.</div>
+        </div>
+        <div class="mockup-body" style="color: #374151;">
+          <ul class="thread-list">
+            <li><span>Her laugh</span><span style="font-size: 0.8125rem; color: #9ca3af;">12 candles</span></li>
+            <li><span>What she taught us</span><span style="font-size: 0.8125rem; color: #9ca3af;">8 candles</span></li>
+            <li><span>Stories we tell</span><span style="font-size: 0.8125rem; color: #9ca3af;">5 candles</span></li>
+          </ul>
+          <div style="margin-top: 1rem;">
+            <a href="#" class="btn" style="background: #4b5563; color: #fff;">Light a candle</a>
+          </div>
+        </div>
+      </div>
+      <div class="mockup">
+        <div class="mockup-header" style="background: #fff; color: #1f2937; font-size: 0.9375rem;">Light a candle · Stories we tell</div>
+        <div class="mockup-body">
+          <label>Your message</label>
+          <textarea placeholder="Share a memory…"></textarea>
+          <p class="helper">There's no right way. Whatever you share is enough.</p>
+          <div style="margin-top: 1rem;"><a href="#" class="btn" style="background: #4b5563; color: #fff;">Light candle</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direction 2: Warm Ritual -->
+  <section class="direction" style="background: #fdf8f3;">
+    <h2>2. Warm Ritual</h2>
+    <p class="tag">Cream and soft amber undertones. Slight warmth without being literal “candle” orange.</p>
+    <div class="two-col">
+      <div class="mockup" style="background: #fefdfb; border: 1px solid #f5ebe0;">
+        <div class="mockup-header" style="background: #fefdfb; color: #3d2c29; border-color: #f5ebe0;">
+          <div style="font-size: 1.125rem; font-weight: 600;">In memory of Eleanor</div>
+          <div style="font-size: 0.875rem; color: #6b5b57; margin-top: 0.25rem;">A place to share stories and light a candle.</div>
+        </div>
+        <div class="mockup-body" style="color: #3d2c29;">
+          <ul class="thread-list" style="border-color: #f5ebe0;">
+            <li><span>Her laugh</span><span style="font-size: 0.8125rem; color: #8b7355;">12 candles</span></li>
+            <li><span>What she taught us</span><span style="font-size: 0.8125rem; color: #8b7355;">8 candles</span>
+            <li><span>Stories we tell</span><span style="font-size: 0.8125rem; color: #8b7355;">5 candles</span></li>
+          </ul>
+          <div style="margin-top: 1rem;">
+            <a href="#" class="btn" style="background: #a67c52; color: #fefdfb;">Light a candle</a>
+          </div>
+        </div>
+      </div>
+      <div class="mockup" style="background: #fefdfb; border: 1px solid #f5ebe0;">
+        <div class="mockup-header" style="background: #fefdfb; color: #3d2c29; border-color: #f5ebe0; font-size: 0.9375rem;">Light a candle · Stories we tell</div>
+        <div class="mockup-body">
+          <label>Your message</label>
+          <textarea placeholder="Share a memory…" style="border-color: #f5ebe0;"></textarea>
+          <p class="helper">There's no right way. Whatever you share is enough.</p>
+          <div style="margin-top: 1rem;"><a href="#" class="btn" style="background: #a67c52; color: #fefdfb;">Light candle</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direction 3: Soft Editorial -->
+  <section class="direction" style="background: #f8f7f5;">
+    <h2>3. Soft Editorial</h2>
+    <p class="tag">Clear typographic hierarchy, slightly editorial. Serif for headings optional; readable sans body.</p>
+    <div class="two-col">
+      <div class="mockup" style="background: #fff; font-family: Georgia, serif;">
+        <div class="mockup-header" style="background: #fff; color: #2d2a26;">
+          <div style="font-size: 1.25rem; font-weight: 600; letter-spacing: 0.02em;">In memory of Eleanor</div>
+          <div style="font-size: 0.875rem; color: #5c5752; margin-top: 0.35rem; font-family: system-ui, sans-serif;">A place to share stories and light a candle.</div>
+        </div>
+        <div class="mockup-body" style="color: #2d2a26; font-family: system-ui, sans-serif;">
+          <ul class="thread-list">
+            <li><span>Her laugh</span><span style="font-size: 0.8125rem; color: #78716c;">12</span></li>
+            <li><span>What she taught us</span><span style="font-size: 0.8125rem; color: #78716c;">8</span></li>
+            <li><span>Stories we tell</span><span style="font-size: 0.8125rem; color: #78716c;">5</span></li>
+          </ul>
+          <div style="margin-top: 1.25rem;">
+            <a href="#" class="btn" style="background: #44403c; color: #fff; font-family: system-ui;">Light a candle</a>
+          </div>
+        </div>
+      </div>
+      <div class="mockup" style="background: #fff;">
+        <div class="mockup-header" style="background: #fff; color: #2d2a26; font-size: 0.9375rem;">Light a candle · Stories we tell</div>
+        <div class="mockup-body">
+          <label>Your message</label>
+          <textarea placeholder="Share a memory…"></textarea>
+          <p class="helper">There's no right way. Whatever you share is enough.</p>
+          <div style="margin-top: 1rem;"><a href="#" class="btn" style="background: #44403c; color: #fff;">Light candle</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direction 4: Quiet Cards -->
+  <section class="direction" style="background: #f4f4f2;">
+    <h2>4. Quiet Cards</h2>
+    <p class="tag">Card-heavy layout, soft shadows, rounded corners. Each thread feels like a gentle card.</p>
+    <div class="two-col">
+      <div class="mockup" style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 12px;">
+        <div class="mockup-header" style="background: #fff; color: #374151; border: none; padding: 1.5rem;">
+          <div style="font-size: 1.125rem; font-weight: 600;">In memory of Eleanor</div>
+          <div style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">A place to share stories and light a candle.</div>
+        </div>
+        <div class="mockup-body" style="color: #374151;">
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="padding: 1rem; background: #fafafa; border-radius: 10px; display: flex; justify-content: space-between;"><span>Her laugh</span><span style="font-size: 0.8125rem; color: #9ca3af;">12</span></div>
+            <div style="padding: 1rem; background: #fafafa; border-radius: 10px; display: flex; justify-content: space-between;"><span>What she taught us</span><span style="font-size: 0.8125rem; color: #9ca3af;">8</span></div>
+            <div style="padding: 1rem; background: #fafafa; border-radius: 10px; display: flex; justify-content: space-between;"><span>Stories we tell</span><span style="font-size: 0.8125rem; color: #9ca3af;">5</span></div>
+          </div>
+          <div style="margin-top: 1.25rem;">
+            <a href="#" class="btn" style="background: #5b6b7a; color: #fff; border-radius: 10px;">Light a candle</a>
+          </div>
+        </div>
+      </div>
+      <div class="mockup" style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 12px;">
+        <div class="mockup-header" style="background: #fff; font-size: 0.9375rem;">Light a candle · Stories we tell</div>
+        <div class="mockup-body">
+          <label>Your message</label>
+          <textarea placeholder="Share a memory…" style="border-radius: 10px;"></textarea>
+          <p class="helper">There's no right way. Whatever you share is enough.</p>
+          <div style="margin-top: 1rem;"><a href="#" class="btn" style="background: #5b6b7a; color: #fff; border-radius: 10px;">Light candle</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="intro" style="padding-top: 0;">
+    <p><strong>Chosen direction:</strong> Bold & Dignified — Slate & silver palette (dark slate, soft gray, cool white), dignified candle imagery (🕯 next to threads and in CTAs), and confident hierarchy. Keeps emotional safety and one hero CTA while lighting up the space with meaning and dignity.</p>
+  </div>
+</body>
+</html>
