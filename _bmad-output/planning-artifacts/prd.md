@@ -32,10 +32,12 @@ The product's core insight is that people don't need another static tribute page
 | Concept | Term | Definition |
 |--------|------|------------|
 | Main space | **Room** | The whole memorial for one person who has died. One room per person. |
-| Container type 1 | **Moment** | A place for sharing a memory or a moment with that person (e.g. "Her laugh," "Stories we tell"). Holds candles. |
-| Container type 2 | **Tribute** | A place for dedicating something to the person (e.g. a song, a flower, a candle, a prayer). Holds candles. |
-| Single contribution | **Candle** | One person's contribution inside a Moment or Tribute: text (required) + optional photo/audio/video. |
+| Container type 1 | **Moment** | A place for **sharing a memory or a moment** you had with that person. Focus: personal recollection, story, or shared experience (e.g. "Her laugh," "Stories we tell"). Candles here = "I remember…" / "A moment we shared." |
+| Container type 2 | **Tribute** | A place for **dedicating something to or for** that person. Focus: offering, dedication, or gift in their honor—e.g. a song, a flower, a candle (ritual), a prayer, or a **link** (video, article, etc.). Candles here = "This is for you" / "I'm dedicating this to them." |
+| Single contribution | **Candle** | One person's contribution inside a Moment or Tribute: text (required) + optional photo, audio, video, or **link** (URL to a video, article, or other resource). |
 | Primary action | **Light** | Main CTA (e.g. button "Light"); longer copy: "Light a candle" or "Add your light." |
+
+**Moment vs Tribute:** **Moment** = sharing a memory or moment *with* them (story, experience). **Tribute** = dedicating something *to* them (song, flower, prayer, or shared link e.g. video). Organizer creates both when setting up the room.
 
 One-sentence value: "A shared home for memories where people can visit, share stories, and light a candle, and it will light forever."
 
@@ -88,7 +90,7 @@ One-sentence value: "A shared home for memories where people can visit, share st
 
 - Rooms (create, view, edit; visibility: **public** or **link-only** at owner’s choice; owner can require **approval for new candles** before they appear).
 - **Moments and Tributes** (create, list, view; two container types—Moment = memory/moment with that person, Tribute = dedication e.g. song, flower, candle, prayer; starter suggestions at room creation).
-- **Candles** (text required; optional photo/audio; display; author and room owner can edit/delete).
+- **Candles** (text required; optional photo, audio, video, or **link**; display; author and room owner can edit/delete).
 - Lightweight auth; named or guest contribution via invite link.
 - Per-room invite link and copyable invite message.
 - Room creator can remove candles or Moments/Tributes; basic spam/abuse handling.
@@ -147,7 +149,7 @@ A relative never saved the link and doesn’t know where to go.
 - **Room creation:** Account/session, create room (name, short description, photo), choose/create Moments and Tributes, set visibility (public or link-only), set whether new candles need owner approval, get invite link and copyable message.
 - **Room view (contributor):** Open via link or (if room is public) via listing/search; see room intro and list of Moments and Tributes.
 - **Moment/Tribute view:** List candles, pagination/lazy-load, **Light** entry point.
-- **Light (add candle):** Gentle copy, text + optional photo/voice, name or “Someone,” submit, confirmation and in-list display.
+- **Light (add candle):** Gentle copy, text + optional photo, video, or link, name or “Someone,” submit, confirmation and in-list display.
 - **Moderation:** Room creator can delete candle or Moment/Tribute; optional approval queue for new candles when owner enables “approve before visible”; basic spam/abuse handling (e.g. block by email).
 - **Re-share:** Same invite link and copyable text so organizer can re-send anytime.
 
@@ -236,7 +238,7 @@ Afterlight is a consumer web application used in-browser on desktop and mobile. 
 
 **Core user journeys supported:** Family Organizer creates room and invites others; Contributor visits via link and lights a candle or leaves a memory; Organizer moderates (remove candle or Moment/Tribute, optional approval queue); Contributor or Organizer re-visits (e.g. anniversary).
 
-**Must-have capabilities:** Room CRUD with visibility (public/link-only) and optional approval for new candles; Moments and Tributes (create, list, view; two container types) with starter suggestions; candles (text required, optional photo/audio, display, edit/delete by author or owner); per-room invite link and copyable message; lightweight auth for creator; named or guest contribution via link; grief-sensitive copy and tone; mobile-friendly layout; pagination/lazy-load for candles; room creator can remove candles or Moments/Tributes and basic spam/abuse handling.
+**Must-have capabilities:** Room CRUD with visibility (public/link-only) and optional approval for new candles; Moments and Tributes (create, list, view; two container types) with starter suggestions; candles (text required, optional photo, audio, video, or link, display, edit/delete by author or owner); per-room invite link and copyable message; lightweight auth for creator; named or guest contribution via link; grief-sensitive copy and tone; mobile-friendly layout; pagination/lazy-load for candles; room creator can remove candles or Moments/Tributes and basic spam/abuse handling.
 
 ### Post-MVP Features
 
@@ -269,7 +271,7 @@ Afterlight is a consumer web application used in-browser on desktop and mobile. 
 
 ### Candles (Memories)
 
-- FR12: Visitor with room access can add a candle to a Moment or Tribute (text required; optional photo and/or audio).
+- FR12: Visitor with room access can add a candle to a Moment or Tribute (text required; optional photo, audio, video, and/or link).
 - FR13: Visitor can provide a display name or contribute as "Someone" (or equivalent anonymous option).
 - FR14: System displays candles in the Moment or Tribute with author attribution (name or anonymous) and content.
 - FR15: Candle author can edit or delete their own candle.
@@ -296,7 +298,7 @@ Afterlight is a consumer web application used in-browser on desktop and mobile. 
 
 ### Content & Media
 
-- FR27: Candles can include text (required), optional photo, and optional audio.
+- FR27: Candles can include text (required), optional photo, optional audio, optional video, and optional link (URL to a video, article, or other resource).
 - FR28: Room supports a primary photo for the room (e.g. of the person being remembered).
 - FR29: Room and candle content are displayed in a grief-sensitive, calm manner (tone and presentation per domain requirements).
 
