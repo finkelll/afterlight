@@ -103,9 +103,9 @@ The core experience is defined by one primary action: **Light** (button; longer 
 ### Emotional Journey Mapping
 
 - **First discovery (organizer):** Tired, sometimes skeptical—hoping something will be simple and lasting. Onboarding should reduce doubt and effort so they feel "I can do this."
-- **First discovery (contributor):** Lands via link; may feel unsure what to write or whether their note is "enough." Room and thread intro plus gentle "Light a candle" copy should build permission and reduce hesitation.
+- **First discovery (contributor):** Lands via link; may feel unsure what to write or whether their note is "enough." Room and Moment/Tribute intro plus gentle "Light a candle" copy should build permission and reduce hesitation.
 - **During core action (light a candle):** Calm focus—simple form, reassurance that short or anonymous is fine; no sense of being on display or performing.
-- **After contributing:** Brief confirmation and seeing their candle in the thread → "I did something meaningful without it being a big production"; included in shared remembrance.
+- **After contributing:** Brief confirmation and seeing their candle in the list → "I did something meaningful without it being a big production"; included in shared remembrance.
 - **When something goes wrong:** Moderation (remove candle) should feel like restoring safety, not punitive. Errors or limits (e.g. upload) should be explained simply, without blame.
 - **Return visit:** Same room, same URL—familiar and still available; "this is still here for me" without re-onboarding or clutter.
 
@@ -121,7 +121,7 @@ The core experience is defined by one primary action: **Light** (button; longer 
 
 - **Calm and safe:** Soft palette, generous spacing, no auto-play or aggressive motion; copy is warm, concise, and permission-giving (e.g. "There's no right way… Whatever you share is enough").
 - **Low pressure:** No counts, streaks, or "engagement" prompts; optional name/"Someone"; no mandatory signup to contribute.
-- **Trust and control:** Visibility and approval explained in plain language; invite link and copyable message easy to find and re-share; moderation (remove candle/thread) available but unobtrusive.
+- **Trust and control:** Visibility and approval explained in plain language; invite link and copyable message easy to find and re-share; moderation (remove candle or Moment/Tribute) available but unobtrusive.
 - **Clarity and inclusion:** One hero CTA (Light); confirmation message that names the outcome ("Your candle is now part of this [moment/tribute]"); room and Moment/Tribute structure make "where I am" and "what I can do" obvious.
 
 ### Emotional Design Principles
@@ -142,21 +142,21 @@ The core experience is defined by one primary action: **Light** (button; longer 
 
 ### Transferable UX Patterns
 
-- **Navigation:** One-level-down from room (thread list with optional count per thread) and one-level into thread (candles spread: each candle shown with author name and message). No aggregation that hides individual candles; thread view = list of individual candles (name + sentence each), with pagination/lazy-load. "Light a candle" available from room and from within thread.
-- **Interaction:** Single primary action per context; optional secondary (e.g. add photo or video) after text; confirmation that states outcome ("Your candle is now part of this thread").
+- **Navigation:** One-level-down from room (list of Moments and Tributes with optional count per Moment/Tribute) and one-level into a Moment or Tribute (candles spread: each candle shown with author name and message). No aggregation that hides individual candles; Moment/Tribute view = list of individual candles (name + sentence each), with pagination/lazy-load. **Light** available from room and from within each Moment or Tribute.
+- **Interaction:** Single primary action per context; optional secondary (e.g. add photo or video) after text; confirmation that states outcome ("Your candle is now part of this [moment/tribute]").
 - **Visual:** Soft palette, generous spacing, readable type; no auto-play or aggressive motion; optional candle/light visual metaphor used sparingly to support ritual feel without kitsch.
 
 ### Anti-Patterns to Avoid
 
-- **Static one-way pages:** Design for return visits and ongoing contribution; room and threads should feel like a living space, not a single post.
+- **Static one-way pages:** Design for return visits and ongoing contribution; room and Moments/Tributes should feel like a living space, not a single post.
 - **Feed or social mechanics:** No likes, counts, streaks, or "engagement" prompts; avoid infinite scroll or algorithm-driven order where it undermines calm.
 - **Heavy signup or opaque permanence:** No mandatory account to view or contribute; clarity on retention/export so families don't fear the platform disappearing.
 - **Gimmicks or replacement narrative:** No AI avatars, chatbots, or framing that suggests "talking to" the person; focus on shared remembrance among living people.
 
 ### Design Inspiration Strategy
 
-- **Adopt:** Link-first access and copyable invite; one hero CTA; room → threads → candles IA; plain-language visibility and approval; confirmation copy that names the outcome; soft, calm visual direction.
-- **Adapt:** Themed-thread pattern adapted to memorial context (starter threads at room creation); optional name/guest to balance attribution and low friction.
+- **Adopt:** Link-first access and copyable invite; one hero CTA; Room → Moments and Tributes → Candles IA; plain-language visibility and approval; confirmation copy that names the outcome; soft, calm visual direction.
+- **Adapt:** Themed-container pattern (Moments and Tributes) adapted to memorial context (starter Moments and Tributes at room creation); optional name/guest to balance attribution and low friction.
 - **Avoid:** Feeds, gamification, mandatory signup for contribution, opaque "forever" claims, AI/replacement framing; keep ritual metaphor meaningful but not literal or heavy-handed.
 
 ## Design System Foundation
@@ -188,24 +188,24 @@ The core experience is defined by one primary action: **Light** (button; longer 
 
 ### 2.1 Defining Experience
 
-The defining experience for Afterlight is **Light a candle**: a contributor adds a memory (text required; optional photo or video) to a themed thread inside a room. This is the one interaction that, if we get it right, makes the product valuable. Users will describe it as "I lit a candle for them" or "I added a memory to their room." Success means the action is obvious, low-friction, and emotionally safe—so contributors don't hesitate and organizers see the space come to life.
+The defining experience for Afterlight is **Light a candle**: a contributor adds a memory (text required; optional photo or video) to a Moment or Tribute inside a room. This is the one interaction that, if we get it right, makes the product valuable. Users will describe it as "I lit a candle for them" or "I added a memory to their room." Success means the action is obvious, low-friction, and emotionally safe—so contributors don't hesitate and organizers see the space come to life.
 
 ### 2.2 User Mental Model
 
-- **How users think about it:** "I'm adding my memory to a shared place for [person]," not "I'm posting on a feed." The room is "for" the person; threads are themes; a candle is "my contribution." Contribution is optional and can be short or anonymous.
+- **How users think about it:** "I'm adding my memory to a shared place for [person]," not "I'm posting on a feed." The room is "for" the person; Moments and Tributes are the themed containers; a candle is "my contribution." Contribution is optional and can be short or anonymous.
 - **Expectations:** Simple form, no heavy signup, and reassurance that whatever they write is enough. They may compare to signing a condolence book, leaving a note, or sending a card—small, meaningful, not performative.
-- **Confusion risks:** Unclear where to start ("Which thread?"), fear their note isn't "enough," or too many steps before submit. Mitigate with one clear CTA, gentle copy, and optional name/guest.
+- **Confusion risks:** Unclear where to start ("Which Moment or Tribute?"), fear their note isn't "enough," or too many steps before submit. Mitigate with one clear CTA, gentle copy, and optional name/guest.
 
 ### 2.3 Success Criteria
 
-- **"This just works":** One visible "Light a candle" from room and from thread; minimal fields (message, then optional name and media); submit and see confirmation without extra steps.
-- **Feeling accomplished:** Clear confirmation (e.g. "Thank you. Your candle is now part of this thread") and seeing their candle in the thread; no sense they had to "perform."
+- **"This just works":** One visible "Light a candle" from room and from each Moment/Tribute; minimal fields (message, then optional name and media); submit and see confirmation without extra steps.
+- **Feeling accomplished:** Clear confirmation (e.g. "Thank you. Your candle is now part of this [moment/tribute]") and seeing their candle in the list; no sense they had to "perform."
 - **Feedback:** Inline or brief modal confirmation; candle appears in the list (or "pending" if approval is on). Errors (e.g. required field, upload failure) are explained simply and without blame.
 - **Speed:** Submit-to-confirmation within a few seconds for text-only; photo/video upload shows progress and then confirm when done.
 
 ### 2.4 Novel UX Patterns
 
-- **Established + ritual frame:** The interaction is a familiar "add a note" form. The novelty is the framing: "Light a candle" + room/thread/candle hierarchy. No new interaction paradigm; optional light education via copy and IA (e.g. "Choose a thread to add your memory").
+- **Established + ritual frame:** The interaction is a familiar "add a note" form. The novelty is the framing: **Light** + room, Moment/Tribute, candle hierarchy. No new interaction paradigm; optional light education via copy and IA (e.g. "Choose a Moment or Tribute to add your memory").
 - **Adopt:** Simple form pattern, optional media, optional name/guest; clear primary button and success state.
 - **Unique twist:** Ritual language and single hero CTA; permission-giving copy ("There's no right way… Whatever you share is enough"); optional anonymity so short or hesitant contributions feel valid.
 
@@ -213,24 +213,24 @@ The defining experience for Afterlight is **Light a candle**: a contributor adds
 
 **1. Initiation**
 
-- **Where:** "Light a candle" CTA on the room view (e.g. near thread list or in a persistent spot) and inside each thread (above or below the candle list).
+- **Where:** **Light** CTA on the room view (e.g. near list of Moments and Tributes or in a persistent spot) and inside each Moment or Tribute (above or below the candle list).
 - **Trigger:** Single primary button or link; label is "Light a candle" (or "Add a memory" as secondary if needed). No competing primary actions on that screen.
 
 **2. Interaction**
 
-- **Flow:** User taps CTA → thread chosen (if from room) or thread is implicit (if from thread) → form: message (required), display name or "Someone" (optional), optional photo or video attachment.
+- **Flow:** User taps CTA → Moment or Tribute chosen (if from room) or Moment/Tribute is implicit (if already in one) → form: message (required), display name or "Someone" (optional), optional photo or video attachment.
 - **Controls:** Text area for message; text field or dropdown for name/Someone; optional upload for photo or video. Submit button clearly labeled (e.g. "Light candle" or "Add candle").
 - **Response:** On submit, show loading or disabled state; then success path or inline validation/error.
 
 **3. Feedback**
 
-- **Success:** Confirmation message that states the outcome (e.g. "Thank you. Your candle is now part of this thread."). If approval is required: "Your candle has been added and will appear once the room creator approves it."
+- **Success:** Confirmation message that states the outcome (e.g. "Thank you. Your candle is now part of this [moment/tribute]."). If approval is required: "Your candle has been added and will appear once the room creator approves it."
 - **Errors:** Required message missing or upload failed → inline message, no blame; retry or fix and resubmit.
 
 **4. Completion**
 
-- **Done:** User sees confirmation and can navigate back to thread to see their candle in the spread (their name and message shown like the others). No forced next step; optional "Add another" or return to room/thread.
-- **Next:** User can leave, browse other threads, or return later; no gamification or "engagement" prompts.
+- **Done:** User sees confirmation and can navigate back to the Moment or Tribute to see their candle in the spread (their name and message shown like the others). No forced next step; optional "Add another" or return to room or Moment/Tribute.
+- **Next:** User can leave, browse other Moments and Tributes, or return later; no gamification or "engagement" prompts.
 
 ## Visual Design Foundation
 
@@ -243,17 +243,17 @@ The defining experience for Afterlight is **Light a candle**: a contributor adds
 
 ### Typography System
 
-- **Tone:** Readable, calm, and approachable—neither corporate nor playful. Suited to short copy (room intro, thread titles, candle text) and form labels; support for longer candle text where users write more.
-- **Hierarchy:** Clear scale for room name/title, thread titles, body/candle content, and secondary/caption text (e.g. author, date). Sufficient size and line height for body and form fields to reduce cognitive load.
+- **Tone:** Readable, calm, and approachable—neither corporate nor playful. Suited to short copy (room intro, Moment/Tribute titles, candle text) and form labels; support for longer candle text where users write more.
+- **Hierarchy:** Clear scale for room name/title, Moment/Tribute titles, body/candle content, and secondary/caption text (e.g. author, date). Sufficient size and line height for body and form fields to reduce cognitive load.
 - **Type scale:** Establish a modest scale (e.g. 1.125–1.25 ratio) so hierarchy is clear without dramatic jumps. Body text at least 16px equivalent for readability; touch targets and labels legible on mobile.
 - **Accessibility:** Sufficient contrast; avoid very thin or decorative fonts for body; support resizing and screen readers (semantic headings, labels).
 
 ### Spacing & Layout Foundation
 
-- **Density:** Generous spacing—airy layout, not dense or busy. Supports emotional safety and reduces visual stress; room and thread content breathe.
-- **Spacing scale:** Consistent scale (e.g. 4px or 8px base) for padding, margins, and gaps. Generous padding in cards, forms, and between sections (room header, thread list, candle list).
-- **Grid and structure:** Simple grid for room view (hero with main image, optional details, owner-added photos, thread list) and thread view (candles spread—each candle one item showing author name, message, and optional photo/video, with pagination/lazy-load). Single-column or limited columns on mobile; room main image and intro as clear "home," threads as list, and within each thread candles displayed individually (name + message + optional media per candle), not aggregated.
-- **Touch and targets:** Adequate touch target size (e.g. 44px min) for primary actions and navigation on mobile; comfortable tap areas for "Light a candle" and thread/card entry.
+- **Density:** Generous spacing—airy layout, not dense or busy. Supports emotional safety and reduces visual stress; room and Moment/Tribute content breathe.
+- **Spacing scale:** Consistent scale (e.g. 4px or 8px base) for padding, margins, and gaps. Generous padding in cards, forms, and between sections (room header, list of Moments and Tributes, candle list).
+- **Grid and structure:** Simple grid for room view (hero with main image, optional details, owner-added photos, list of Moments and Tributes) and Moment/Tribute view (candles spread—each candle one item showing author name, message, and optional photo/video, with pagination/lazy-load). Single-column or limited columns on mobile; room main image and intro as clear "home," Moments and Tributes as list, and within each Moment or Tribute candles displayed individually (name + message + optional media per candle), not aggregated.
+- **Touch and targets:** Adequate touch target size (e.g. 44px min) for primary actions and navigation on mobile; comfortable tap areas for **Light** and Moment/Tribute or card entry.
 
 ### Accessibility Considerations
 
@@ -268,7 +268,7 @@ The defining experience for Afterlight is **Light a candle**: a contributor adds
 
 Five directions were explored in `ux-design-directions.html` (including the chosen Bold & Dignified), with earlier options reviewed in Party Mode:
 
-- **Bold & Dignified (chosen):** Richer color (warm amber, gold, deep neutrals), dignified candle imagery (icon next to threads and in CTAs), confident hierarchy. Lights up emotions while honoring the person remembered; gravitas and warmth together.
+- **Bold & Dignified (chosen):** Richer color (warm amber, gold, deep neutrals), dignified candle imagery (icon next to Moments and Tributes and in CTAs), confident hierarchy. Lights up emotions while honoring the person remembered; gravitas and warmth together.
 - **Calm Minimal:** Maximum white space, subtle gray, minimal accent; quiet and uncluttered. Supports low cognitive load and one clear CTA.
 - **Warm Ritual:** Cream and soft amber undertones; gentle warmth without literal "candle" orange. Signals "this is a special place" without branding grief.
 - **Soft Editorial:** Clear typographic hierarchy, optional serif for headings; can feel more magazine-like than memorial if overused.
@@ -281,15 +281,15 @@ Five directions were explored in `ux-design-directions.html` (including the chos
 ### Design Rationale (Stakeholder + Party Mode)
 
 - **Emotional resonance:** Bolder color and candle imagery help the space feel like a dedicated place of remembrance; they support the ritual of "lighting a candle" and can deepen connection for visitors and organizers.
-- **Dignity first:** Candle imagery is used with restraint and respect—e.g. small candle icon or illustration next to thread titles, subtle flame in the hero CTA, or a single dignified candle motif—not decorative or kitsch. Palette remains warm and rich (amber, gold, deep neutrals, optional deep blue or burgundy for gravitas), not bright or gamified.
-- **Candles spread, not aggregated:** In thread view, each candle is shown individually (spread): author name (or "Someone") and the message/sentence they wrote. No aggregation that collapses candles into a single count; the thread is a list of individual candles so visitors see who lit each one and what they said.
+- **Dignity first:** Candle imagery is used with restraint and respect—e.g. small candle icon or illustration next to Moment/Tribute titles, subtle flame in the hero CTA, or a single dignified candle motif—not decorative or kitsch. Palette remains warm and rich (amber, gold, deep neutrals, optional deep blue or burgundy for gravitas), not bright or gamified.
+- **Candles spread, not aggregated:** In Moment/Tribute view, each candle is shown individually (spread): author name (or "Someone") and the message/sentence they wrote. No aggregation that collapses candles into a single count; the Moment or Tribute shows a list of individual candles so visitors see who lit each one and what they said.
 - **Hierarchy and clarity:** One hero CTA ("Light a candle") remains; candle visuals reinforce the metaphor rather than compete with it. Reassurance copy and structure stay in place for emotional safety.
 
 ### Implementation Approach
 
 - Implement the Bold & Dignified direction using the themeable design system: richer color tokens (warm amber/gold primary, deep accent options, dignified neutrals), confident type scale, generous spacing.
-- **Candle imagery:** Include candle visuals in a dignified way—e.g. small candle icon next to each thread in the list, candle or flame accent on or near the primary "Light a candle" button, optional subtle candle illustration in room hero or empty states. Use a consistent, respectful style (e.g. line art or soft illustration); avoid clip-art or cartoonish treatment.
-- **Candle display in thread view:** Show candles spread (one per row/card). Each candle displays: (1) an animated candle that looks lit, (2) the name of the person who lit it (or "Someone"), (3) the message or sentence they wrote, (4) optional photo or video attached by the contributor, and (5) a time summary for when the candle was lit ("Lit X years/months/days ago"). Pagination or lazy-load when there are many candles; no aggregation that hides individual contributions.
+- **Candle imagery:** Include candle visuals in a dignified way—e.g. small candle icon next to each Moment or Tribute in the list, candle or flame accent on or near the primary "Light a candle" button, optional subtle candle illustration in room hero or empty states. Use a consistent, respectful style (e.g. line art or soft illustration); avoid clip-art or cartoonish treatment.
+- **Candle display in Moment/Tribute view:** Show candles spread (one per row/card). Each candle displays: (1) an animated candle that looks lit, (2) the name of the person who lit it (or "Someone"), (3) the message or sentence they wrote, (4) optional photo or video attached by the contributor, and (5) a time summary for when the candle was lit ("Lit X years/months/days ago"). Pagination or lazy-load when there are many candles; no aggregation that hides individual contributions.
 - Keep "Light a candle" as the single hero CTA; place reassurance copy ("There's no right way…") immediately with the message input. Ensure contrast and accessibility (WCAG 2.1 AA) with the bolder palette.
 
 ## User Journey Flows
@@ -324,30 +324,30 @@ flowchart LR
 
 **Success:** Invite link and copyable message in one place; minimal steps; first candle from someone else = “space is working.”
 
-**Errors:** Validation on required fields; clear message if room creation fails; option to edit room/threads later.
+**Errors:** Validation on required fields; clear message if room creation fails; option to edit room or Moments/Tributes later.
 
 ---
 
 ### 2. Contributor – Visit and light a candle
 
-**Goal:** Open the room via link, see who it’s for and the threads, read candles, and add a candle (message + optional name + optional photo or video) with minimal friction.
+**Goal:** Open the room via link, see who it’s for and the Moments and Tributes, read candles, and add a candle (message + optional name + optional photo or video) with minimal friction.
 
 **Entry:** Tap/open invite link (no account required to view).
 
-**Flow:** Open link → Room view (who it’s for, optional details, main image, thread list with candle counts) → Open a thread → See candles spread (name + message + “Lit X ago”; candles may include photo or video) → Tap “Light a candle” → Form: message (required), name or “Someone” (optional), optional **photo or video** attachment → Submit → Confirmation (“Your candle is now part of this thread”) → See their candle in the spread.
+**Flow:** Open link → Room view (who it’s for, optional details, main image, list of Moments and Tributes with candle counts) → Open a Moment or Tribute → See candles spread (name + message + “Lit X ago”; candles may include photo or video) → Tap “Light a candle” → Form: message (required), name or “Someone” (optional), optional **photo or video** attachment → Submit → Confirmation (“Your candle is now part of this [moment/tribute]") → See their candle in the spread.
 
 **Candle content (contributor):** Text is required. Contributor can optionally attach **one photo or one video** to their candle (in addition to the message).
 
 ```mermaid
 flowchart LR
   A[Open invite link] --> B[Room view]
-  B --> C[Open thread]
+  B --> C[Open Moment or Tribute]
   C --> D[Read candles spread]
   D --> E[Tap Light a candle]
   E --> F[Message + name + optional photo/video]
   F --> G[Submit]
   G --> H[Confirmation]
-  H --> I[See candle in thread]
+  H --> I[See candle in list]
 ```
 
 **Success:** One clear CTA; reassurance copy; minimal fields; immediate confirmation and candle visible in list (with photo/video if attached).
@@ -383,7 +383,7 @@ flowchart LR
 
 **Goal:** Return to the room (e.g. anniversary) or find it again after losing the link.
 
-**Flow (return):** Same URL (bookmark or saved link) → Room view (unchanged) → Browse threads and candles or light a new candle. No re-onboarding.
+**Flow (return):** Same URL (bookmark or saved link) → Room view (unchanged) → Browse Moments and Tributes and candles or light a new candle. No re-onboarding.
 
 **Flow (lost link):** If link-only room, search won’t find it → Get link again from organizer or family → Open link → Same room view as first time; optional gentle cue that the space is still here.
 
@@ -391,9 +391,9 @@ flowchart LR
 
 ### Journey patterns
 
-- **Navigation:** Room → thread list → thread (candles spread). One level down from room; one level into thread. “Light a candle” available from room and from within thread.
-- **Decisions:** Organizer: visibility and approval at room creation; Contributor: which thread (if starting from room), name vs “Someone.” No branching that blocks core success.
-- **Feedback:** Confirmation after submit (“Your candle is now part of this thread”); candle visible in list; optional “pending” state when approval is on. Errors inline, no blame.
+- **Navigation:** Room → list of Moments and Tributes → Moment or Tribute (candles spread). One level down from room; one level into a Moment or Tribute. “Light a candle” available from room and from within each Moment or Tribute.
+- **Decisions:** Organizer: visibility and approval at room creation; Contributor: which Moment or Tribute (if starting from room), name vs “Someone.” No branching that blocks core success.
+- **Feedback:** Confirmation after submit (“Your candle is now part of this [moment/tribute]”); candle visible in list; optional “pending” state when approval is on. Errors inline, no blame.
 
 ### Flow optimization principles
 
@@ -413,7 +413,7 @@ Use the themeable design system for:
 - **Layout:** Grid, container, spacing scale (Slate & silver tokens).
 - **Forms:** Text input, textarea, label, validation message — for room creation (main image, optional details, photos) and "Light a candle."
 - **Buttons:** Primary CTA ("Light a candle" / "Light candle"), secondary (e.g. "Cancel"), destructive ("Remove") — all with Slate palette and a11y.
-- **Cards / surfaces:** For room card, thread list container, candle row container; borders and shadows from tokens.
+- **Cards / surfaces:** For room card, Moments and Tributes list container, candle row container; borders and shadows from tokens.
 - **Focus and keyboard:** Logical order, visible focus, labels — no custom behavior that breaks a11y.
 
 Customize only tokens (color, type, spacing) and any component overrides needed for the chosen palette and tone.
@@ -428,10 +428,10 @@ Customize only tokens (color, type, spacing) and any component overrides needed 
 - **States:** Default; loading (skeleton) if room data is loading.
 - **Accessibility:** Semantic heading, image alt text, sufficient contrast (Slate & silver).
 
-**2. Thread list item**
+**2. Moment/Tribute list item**
 
 - **Purpose:** One Moment or Tribute in the room: theme name and candle count (or count only), link to open it.
-- **Content:** Thread title; optional "X candles" or count.
+- **Content:** Moment or Tribute title; optional "X candles" or count.
 - **Actions:** Tap/click to open Moment or Tribute. Optional candle icon (dignified, from design direction).
 - **States:** Default, hover/focus.
 - **Accessibility:** Link or button with clear label; count available to screen readers.
@@ -494,7 +494,7 @@ Customize only tokens (color, type, spacing) and any component overrides needed 
 
 ### Feedback Patterns
 
-- **Success:** After lighting a candle: short confirmation ("Your candle is now part of this thread"); candle appears in the spread. Optional brief "Copied" for invite link/message. No auto-dismiss that's too fast to read.
+- **Success:** After lighting a candle: short confirmation ("Your candle is now part of this [moment/tribute]"); candle appears in the spread. Optional brief "Copied" for invite link/message. No auto-dismiss that's too fast to read.
 - **Error:** Inline where possible (e.g. under message field); clear, non-blaming copy; path to fix (e.g. "Add a message").
 - **Loading:** Disabled primary button or subtle spinner on submit; for photo/video upload, progress or "Uploading…" so users know it's in progress.
 - **Validation:** Inline on blur or submit; required message on Light-a-candle form; date/place fields follow room optional-field rules.
@@ -514,7 +514,7 @@ Customize only tokens (color, type, spacing) and any component overrides needed 
 ### Additional Patterns
 
 - **Empty states:** Moment or Tribute with no candles yet: gentle prompt to be the first to light a candle; same CTA. Room with no Moments/Tributes: organizer prompt to add Moments or Tributes (if creator).
-- **Loading states:** Room and thread use skeleton or minimal spinner; avoid blank screens. Candle row can skeleton while loading.
+- **Loading states:** Room and Moment/Tribute use skeleton or minimal spinner; avoid blank screens. Candle row can skeleton while loading.
 - **Modals/overlays:** Light-a-candle can be modal or in-page form; confirmation can be inline or brief modal. Confirmation for "Remove candle" in a modal or dialog with clear Confirm/Cancel.
 - **Reduced motion:** Respect prefers-reduced-motion for candle flame animation; no essential info in motion alone.
 
@@ -523,29 +523,29 @@ Customize only tokens (color, type, spacing) and any component overrides needed 
 
 ### Responsive Strategy
 
-- **Mobile-first:** Primary use is via invite link on phones. Room view, thread list, thread view (candles spread), and Light-a-candle form must work from ~320px up. Single column; room hero (main image + optional details) and thread list stack vertically; candle rows full width; one primary CTA always visible.
+- **Mobile-first:** Primary use is via invite link on phones. Room view, list of Moments and Tributes, Moment/Tribute view (candles spread), and Light form must work from ~320px up. Single column; room hero (main image + optional details) and Moments and Tributes list stack vertically; candle rows full width; one primary CTA always visible.
 - **Tablet:** Same layout as mobile with more comfortable spacing; no separate tablet layout required for MVP. Touch targets and tap areas remain at least 44px.
-- **Desktop:** Optional use of max-width container for readability; room/thread content can sit in a centered column. No multi-column candle grid for MVP—candles stay in a single list. Extra space used for padding and breathing room, not extra UI.
+- **Desktop:** Optional use of max-width container for readability; room and Moment/Tribute content can sit in a centered column. No multi-column candle grid for MVP—candles stay in a single list. Extra space used for padding and breathing room, not extra UI.
 
 ### Breakpoint Strategy
 
 - **Base (default):** 320px and up (mobile-first). Single column, stacked sections, full-width CTAs.
-- **Breakpoint(s):** Optional at 768px or 1024px to increase max-width of content area and/or padding; no structural change to room → thread list → thread. Use relative units (rem, %, min/max-width) so type and spacing scale; avoid fixed px for key layout.
+- **Breakpoint(s):** Optional at 768px or 1024px to increase max-width of content area and/or padding; no structural change to room → Moments and Tributes → Moment or Tribute. Use relative units (rem, %, min/max-width) so type and spacing scale; avoid fixed px for key layout.
 - **Target viewport range:** ~320px to ~1280px (and beyond) without horizontal scroll or clipped content.
 
 ### Accessibility Strategy
 
 - **WCAG 2.1 Level AA** for core flows (room view, Moment/Tribute view, Light (add candle), room creation, moderation). Contrast, focus, labels, and keyboard operability per AA.
 - **Contrast:** Slate & silver palette chosen so text and UI meet 4.5:1 (normal text) and 3:1 (large text / UI components). Check primary button and links against background.
-- **Keyboard:** All primary actions (open thread, Light a candle, submit, copy link, remove candle, confirm/cancel) operable by keyboard; focus order logical; focus visible (clear focus ring).
-- **Screen readers:** Semantic structure (headings, landmarks, list for threads/candles); form labels and errors associated; "Light a candle" and other CTAs announced clearly; candle row content (name, message, "Lit X ago") in readable order. Optional photo/video: alt or short description.
+- **Keyboard:** All primary actions (open Moment or Tribute, Light, submit, copy link, remove candle, confirm/cancel) operable by keyboard; focus order logical; focus visible (clear focus ring).
+- **Screen readers:** Semantic structure (headings, landmarks, list for Moments, Tributes, and candles); form labels and errors associated; "Light a candle" and other CTAs announced clearly; candle row content (name, message, "Lit X ago") in readable order. Optional photo/video: alt or short description.
 - **Touch targets:** Minimum 44×44px for primary actions and links on touch devices; adequate spacing between tappable areas.
 - **Motion:** Candle flame animation optional or reduced when prefers-reduced-motion is set; no essential information conveyed by motion alone.
 
 ### Testing Strategy
 
-- **Responsive:** Test room, thread list, thread, and Light-a-candle at 320px, 375px, 768px, 1024px; no horizontal overflow; text readable without zoom.
-- **Accessibility:** Run automated a11y checks (e.g. axe, Lighthouse) on key pages; keyboard-only pass through room → thread → light candle → submit; test with one screen reader (e.g. VoiceOver or NVDA) for labels, headings, and flow.
+- **Responsive:** Test room, list of Moments and Tributes, Moment or Tribute, and Light at 320px, 375px, 768px, 1024px; no horizontal overflow; text readable without zoom.
+- **Accessibility:** Run automated a11y checks (e.g. axe, Lighthouse) on key pages; keyboard-only pass through room → Moment/Tribute → Light → submit; test with one screen reader (e.g. VoiceOver or NVDA) for labels, headings, and flow.
 - **Real devices:** Spot-check on at least one iOS and one Android device for touch and layout.
 
 ### Implementation Guidelines
